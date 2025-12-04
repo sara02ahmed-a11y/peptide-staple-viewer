@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>meta C3 Staple – 3D Viewer</title>
+<script src="https://3dmol.org/build/3Dmol-min.js"></script>
+<style>
+  body { margin: 0; }
+  #viewer { width: 100vw; height: 100vh; }
+</style>
+</head>
+<body>
+
+<div id="viewer"></div>
+
+<script>
+let element = document.getElementById("viewer");
+let config = { backgroundColor: "white" };
+let viewer = $3Dmol.createViewer(element, config);
+
+$3Dmol.download("meta_C3.sdf", viewer, {}, function() {
+    viewer.setStyle({}, {stick:{radius:0.18}});
+    viewer.zoomTo();
+    viewer.render();
+});
+</script>
+
+</body>
+</html>
